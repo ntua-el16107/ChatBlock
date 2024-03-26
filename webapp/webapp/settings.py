@@ -31,6 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'crispy_forms',
+    "crispy_bootstrap4",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -38,9 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'debug_toolbar',
-    'chatblock',
+    'blockchat',
     'node',
-    'user'
+    'user',
 ]
 
 MIDDLEWARE = [
@@ -59,6 +61,10 @@ INTERNAL_IPS = [
     "127.0.0.1",
     # ...
 ]
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
+
+CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 ROOT_URLCONF = 'webapp.urls'
 
@@ -133,7 +139,7 @@ MEDIA_URL = '/media/'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-LOGIN_REDIRECT_URL = 'noobcash-home'
+LOGIN_REDIRECT_URL = 'blockchat-home'
 LOGIN_URL = 'login'
 
 

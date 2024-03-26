@@ -7,7 +7,7 @@ from django.shortcuts import render
 from node.models import Node
 
 
-@login_required
+#@login_required
 def home(request):
     nodes = Node.objects.all()
 

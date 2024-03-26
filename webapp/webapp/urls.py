@@ -18,14 +18,14 @@ import debug_toolbar
 from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth import views as auth_views
-from chatblock import views as chatblock_views
+from blockchat import views as blockchat_views
 from node import views as node_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
      path(
          '',
-         auth_views.LoginViews.as_view(
+         auth_views.LoginView.as_view(
              redirect_authenticated_user=True,
              template_name='user/login.html'
          ),
@@ -36,7 +36,7 @@ urlpatterns = [
              auth_views.LogoutView.as_view(template_name='user/logout.html'),
              name='logout'
          ),
-         path('home/', include('chatblock.urls')),
+         path('home/', include('blockchat.urls')),
          path('node/', include('node.urls')),
          path('__debug__/', include('debug_toolbar.urls')),
 ]

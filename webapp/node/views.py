@@ -59,7 +59,7 @@ def new_transaction(request, id):
     nodes = Node.objects.filter(id=id, status="Online")
     if not nodes:
         messages.error(request, 'The node is not currently online.')
-        return redirect('chatblock-home')
+        return redirect('blockchat-home')
 
     # Getting the object from the queryset
     node = nodes[0]
@@ -118,7 +118,7 @@ def last_valid_transactions(request, id):
     nodes = Node.objects.filter(id=id, status="Online")
     if not nodes:
         messages.error(request, 'The node is not currently online.')
-        return redirect('chatblock-home')
+        return redirect('blockchat-home')
 
     node = nodes[0]
 
@@ -142,7 +142,7 @@ def my_transactions(request, id):
     nodes = Node.objects.filter(id=id, status="Online")
     if not nodes:
         messages.error(request, 'The node is not currently online.')
-        return redirect('chatblock-home')
+        return redirect('blockchat-home')
 
     node = nodes[0]
 
@@ -171,7 +171,7 @@ def my_balance(request, id):
     nodes = Node.objects.filter(id=id, status="Online")
     if not nodes:
         messages.error(request, "The node is not currently online")
-        return redirect('chatblock-home')
+        return redirect('blockchat-home')
     node = nodes[0]
     try:
         # For production add the timeout argument to ensure that the
