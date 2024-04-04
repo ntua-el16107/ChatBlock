@@ -13,6 +13,7 @@ requests = "*"
 texttable = "*"
 crispy-bootstrap4 = "*"
 urllib3 = "*"
+pyinquirer = "*"
 
 [dev-packages]
 
