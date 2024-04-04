@@ -95,7 +95,7 @@ class Node:
         # the previous transactions of the node.
         inputs = []
         inputs_ids = []
-        bbc_sent = 0
+        nbc_sent = 0
         for tr in self.wallet.transactions:
             for output in tr.transaction_outputs:
                 if (output.recipient == self.wallet.public_key and
@@ -103,13 +103,13 @@ class Node:
                     inputs.append(TransactionInput(tr.transaction_id))
                     inputs_ids.append(tr.transaction_id)
                     output.unspent = False
-                    bbc_sent += output.amount
-            if bbc_sent >= amount:
+                    nbc_sent += output.amount
+            if nbc_sent >= amount:
                 # Exit the loop when UTXOs exceeds the amount of
                 # the transaction.
                 break
 
-        if bbc_sent < amount:
+        if nbc_sent < amount:
             # If the node don't have enough coins, the possible inputs turn
             # into unspent again
             for tr in self.wallet.transactions:
@@ -125,7 +125,7 @@ class Node:
             receiver_id=receiver_id,
             amount=amount,
             transaction_inputs=inputs,
-            bbc_sent=bbc_sent
+            bbc_sent=nbc_sent
         )
 
         # Sign the transaction
